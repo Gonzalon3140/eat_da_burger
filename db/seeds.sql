@@ -1,17 +1,15 @@
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    (Chicken
-Zinger Burger, false);
+    ("bacon burger");
 INSERT INTO burgers
-    (burger_name)
+    (burger_name, devoured)
 VALUES
-    (Double Mac Burger);
+    ("double bacon cheeseburger");
 INSERT INTO burgers
-    (burger_name)
+    (burger_name, devoured)
 VALUES
-    (Grilled
-Chicken Burger);
+    ("whiskey river burger");
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
