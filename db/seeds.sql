@@ -1,15 +1,15 @@
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("bacon burger");
+    ("bacon", "burger");
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("double bacon cheeseburger");
+    ("double", "bacon", "cheeseburger");
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("whiskey river burger");
+    ("whiskey", "river", "burger");
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
