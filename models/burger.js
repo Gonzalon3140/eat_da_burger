@@ -2,21 +2,21 @@ var orm = require("../config/orm.js");
 
 var burger = {
     all: function (cb) {
-        orm.all("burgers", function (res) {
+        orm.selectAll("burgers", function (res) {
             cb(res);
         });
     },
-    create: function (vals, cb) {
-        orm.create("eat-da-burger", [
-            "burger_name", "devoured"
-        ], [vals, false], cb);
+    create: function (val, cb) {
+        var name = val.burger_name;
+        orm.create("burgers", "burger_name", name, function (res) {
+            cb(res);
+        })
     },
-    update: function (id, cb) {
-        var condition = "id=" + id;
-        orm.update("eat-da-burger", {
-            devoured: true
-        }, condition, cb);
-    }
+    eat: function (id, cb) {
+        orm.eat("burgers", id, "devoured", true, function (res) {
+            cb(res);
+        });
+    },
 };
 
 module.exports = burger;

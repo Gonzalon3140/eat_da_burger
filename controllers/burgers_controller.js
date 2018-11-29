@@ -1,34 +1,41 @@
-var express = require("express");
 var burger = require("../models/burger.js");
+var exphbr = require("express-handlebars");
+var express = require("express");
 var router = express.Router();
+var app = express();
+
+
+app.engine("handlebars", exphbr({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
+
+
+// router.get("/", function (req, res) {
+//     res.redirect("/burgers");
+// });
 
 router.get("/", function (req, res) {
-    res.redirect("/burgers");
-});
-
-router.get("/burgers", function (req, res) {
     burger.all(function (data) {
-
-        console.log(data);
-        res.render("index", {
-            burger_data: data
-        });
+        var allBurg = {
+            burger: data
+        };
+        res.render("index", allBurg);
     });
 });
 
-router.post("/burgers/create", function (req, res) {
-    console.log(req.body.burger_name);
-    burger.create(req.body.burger_name, function (result) {
-
-        console.log(result);
-        res.redirect("/");
+router.post("/", function (req, res) {
+    console.log(req.body);
+    burger.create(req.body, function (result) {
+        console.log(res);
+        res.render("index", result);
     });
 });
 
-router.put("/burgers/update", function (req, res) {
-    burger.update(req.body.burger_id, function (result) {
+router.put("/:id", function (req, resp) {
+    burger.eat(req.params.id, function (res) {
         console.log(result);
-        res.redirect("/");
+        resp.render("index", res);
 
     });
 });

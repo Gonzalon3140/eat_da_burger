@@ -6,11 +6,10 @@ USE burgers_db;
 
 CREATE TABLE burgers
 (
-    id INT NOT NULL
+    id INT(10) NOT NULL
     AUTO_INCREMENT,
 burger_name VARCHAR
     (255),
-devoured BOOLEAN DEFAULT false,
-ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+devoured BOOLEAN NOT NULL DEFAULT false,
 PRIMARY KEY
     (id));

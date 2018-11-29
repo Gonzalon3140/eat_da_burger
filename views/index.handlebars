@@ -1,47 +1,74 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12" id="top-bar">
-            <img src="" alt="burger" />
-            <h1> Eat-Da-Burger! </h1>
-        </div>
-        <div class="col-xs-6 text-center" class="task">
-            <div class="row">
-                {{#each burger_data}}
-                {{#unless this.devoured}}
-                <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.burger_name}}
-          </pre>
-                    <!-- {{this.Date}} -->
+<h1 class="ctr">Chi'Burga</h1>
+<div>
+    <img id="img" src="../public/assets/img/burger.jpg" width=150px height=150px>
+</div>
+<hr>
+<div class="row ctr">
+    <div class="col s6">
+        <h4>Your Favorites</h4>
+    </div>
+    <div class="col s6">
+        <h4>What you are Eating</h4>
+    </div>
+    <div class="col s6">
+        <ul id="favorites">
+            {{#each burger}}
+            {{#unless this.devoured}}
+            <li>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <div class="card-panel grey">
+                            <div class="card-content white-text">
+                                <h6>{{this.burger_name}}</h6>
+                                <hr>
+                            </div>
+                            <div class="card-action">
+                                <button style="color:black;background-color:coral" value="{{this.id}}" class="eatBurger waves-effect btn-small">Devour
+                                    it!</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-3 text-center">
-                    <form method="POST" action="/burgers/update?_method=PUT" class="button-size">
-                        <input input type="hidden" type="text" name="burger_id" value={{this.id}}><br>
-                        <button type="submit" class="btn btn-default">Devour it!</button>
-                    </form>
-                </div>
-                </br>
-                {{/unless}}
-                {{/each}}
-            </div>
-        </div>
-        <div class="col-xs-6 text-center" class="task">
-            {{#each burger_data}}
+            </li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col s6">
+        <br>
+        <ul class="collection">
+            {{#each burger}}
             {{#if this.devoured}}
-            <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+            <li class="collection-item">
+                <div class="row" style="margin-bottom:0px;">
+                    <div class="col s8 offset-s2">
+                        <div class="card-panel grey">
+                            <div class="card-content black-text">
+                                <span style="font-size: 18px">{{this.burger_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
             {{/if}}
             {{/each}}
-        </div>
+        </ul>
     </div>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center enter_section">
-            <form action="/burgers/create" method="POST">
-                <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-                <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-            </form>
-            <p>Enter a burger you want to eat Click the "Submit" button.</p>
-        </div>
+<hr>
+<div class="row ctr">
+    <div class="col s12">
+        <h4>Create Another</h4>
     </div>
+    <form class="addBurger">
+        <div class="input-field col s4 push-s4">
+            <input name="burger" placeholder="Create a New Burger Here" id="b_name" type="text" class="validate">
+            <button type="submit" style="color:black;background-color:coral" class="waves-effect btn-small">Add
+                Creation</button>
+        </div>
+    </form>
+</div>
+<div id="footer">
+    <small style="margin-left:10px"><a href="https://github.com/Gonzalon3140">GitHub Repo</a></small>
+    <small id="sig">&copy;2018 Tony Gonzales</small>
 </div>
