@@ -1,4 +1,4 @@
-var connection = require("../config/connection.js");
+var connection = require("../config/connection");
 
 
 var orm = {
@@ -9,7 +9,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            cb(result);
+            cb(res);
         });
     },
     create: function (table, cols, vals, cb) {

@@ -1,4 +1,4 @@
-var burger = require("../models/burger.js");
+var burger = require("../models/burger");
 var exphbr = require("express-handlebars");
 var express = require("express");
 var router = express.Router();
