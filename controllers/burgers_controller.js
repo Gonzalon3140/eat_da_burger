@@ -16,7 +16,7 @@ app.set("view engine", "handlebars");
 // });
 
 router.get("/", function (req, res) {
-    burger.all(function (data) {
+    burger.selectAll(function (data) {
         var allBurg = {
             burger: data
         };
@@ -27,15 +27,15 @@ router.get("/", function (req, res) {
 router.post("/", function (req, res) {
     console.log(req.body);
     burger.create(req.body, function (result) {
-        console.log(res);
+        // console.log(res);
         res.render("index", result);
     });
 });
-
-router.put("/:id", function (req, resp) {
-    burger.eat(req.params.id, function (res) {
-        console.log(result);
-        resp.render("index", res);
+// take closer look at the put
+router.put("/:id", function (req, res) {
+    burger.eat(req.params.id, function (result) {
+        // console.log(result.fieldCount);
+        res.render("index", result);
 
     });
 });
