@@ -3,7 +3,9 @@ h1 {
 }
 
 .ctr {
-    text-align: center;
+    color: #b1bfd6;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: left;
 }
 
 #img {
@@ -20,9 +22,16 @@ h1 {
     width: 100%;
 }
 
-#sig {
+#tag {
     float: right;
     margin: 5px 10px;
     font-family: 'Open Sans Condensed', sans-serif;
+}
 
+#test {
+    box-shadow: 20px 20px 50px 10px rgb(35, 48, 92);
+}
+
+#test2 {
+    box-shadow: 20px 20px 50px 10px rgb(35, 48, 92);
 }
